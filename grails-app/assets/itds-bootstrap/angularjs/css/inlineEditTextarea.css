@@ -1,0 +1,16 @@
+.itds-angular-tools-inline-edit-textarea {
+    position:relative;
+}
+
+.itds-angular-tools-inline-edit-textarea-display i {
+    visibility:hidden;
+}
+
+.itds-angular-tools-inline-edit-textarea:hover .itds-angular-tools-inline-edit-textarea-display i {
+    visibility: visible;
+}
+
+.itds-angular-tools-inline-edit-textarea-editor form {
+    margin-bottom: 0;
+    vertical-align: top;
+}

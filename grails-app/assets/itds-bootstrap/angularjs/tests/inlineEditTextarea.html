@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="../css/inlineEditText.css">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"></head>
+    <body ng-app="ItdsTools" >
+
+    <inline-edit-form method="post" action="/test" parameters="{id: 12}">
+        <inline-edit-textarea name="testname" value="testvalue"/>
+    </inline-edit-form>
+
+    <script src="../js/polyfills.js"></script>
+    <script src="../js/angular.min.js"></script>
+
+    <script src="../app.js"></script>
+    <script src="../directives/ngOnescape.js"></script>
+    <script src="../directives/ngVisible.js"></script>
+    <script src="../directives/inlineEditForm.js"></script>
+    <script src="../directives/inlineEditTextarea.js"></script>
+    <script src="inlineEditTextArea.js"></script>
+
+
+    </body>
+</html>

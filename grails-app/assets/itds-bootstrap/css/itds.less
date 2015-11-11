@@ -1,0 +1,119 @@
+@import "fa/font-awesome.less";
+//pre ohne well Formatierung
+span.pre {
+	white-space: pre;
+}
+
+// altes icon für athena/itds-connect
+i.icon.icon-th {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+i.icon.icon-th:before {
+  content:"\f00a";
+}
+
+
+//icons
+
+/*i {
+	color:#000;
+}
+
+i.icon-white {
+	color:#fff;
+}
+
+i.icon-red {
+	color:@white;
+}
+
+i.icon-yellow {
+	color:@yellow;
+}
+
+i.icon-blue {
+	color:@blue;
+}
+i.icon-purple {
+	color:@purple;
+}
+i.icon-green {
+	color:@green;
+}
+i.icon-orange {
+	color:@orange;
+}
+i.icon-pink {
+	color:@pink;
+}
+i.icon-red {
+	color:@red;
+}
+
+.btn-danger i, .btn-primary i , .btn-success i, .btn-warning i, .btn-info i, .btn-inverse i {
+	color:@white;
+}         */
+
+//Gestreifte Tabelle mit 2 Zeilen Pro eintrag
+
+/*.table-2striped tr:nth-child(4n+1) td, .table-2striped tr:nth-child(4n+2) td {
+	background-color: @tableBackgroundAccent;
+}
+.table-2striped tr:nth-child(2n) td  {
+	border-top: 0 none;
+} */
+
+.accordion-heading h2 {
+	font-size:18px;
+	line-height:22px;
+}
+
+.accordion-toggle i.icon-collapse-toggle {
+  .fa;
+  .fa-search-minus;
+}
+.accordion-toggle.collapsed i.icon-collapse-toggle {
+  .fa;
+  .fa-search-minus;
+}
+
+.navbar .span2.brand {
+	font-size:18px;
+	margin-left:0;
+	margin-right: 2.5641%;
+	padding: 8px 14px 12px 0px;
+	color: white;
+}
+
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:20px;
+   width:100%;
+   background:#999;
+   padding-left:20px;
+}
+
+
+@input_placeholder: #BBB;
+
+input::-webkit-input-placeholder {
+    color:    @input_placeholder;
+}
+input:-moz-placeholder {
+    color:    @input_placeholder;
+}
+input:-ms-input-placeholder {
+    color:    @input_placeholder;
+}
+
+#itds_connect > a > i.icon {
+       color: white;
+}

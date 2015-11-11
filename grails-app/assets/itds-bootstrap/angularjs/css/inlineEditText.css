@@ -1,0 +1,24 @@
+.itds-angular-tools-inline-edit-text {
+    position:relative;
+}
+
+.itds-angular-tools-inline-edit-text-display i {
+    visibility:hidden;
+}
+
+.itds-angular-tools-inline-edit-text:hover .itds-angular-tools-inline-edit-text-display i {
+    visibility: visible;
+}
+
+.itds-angular-tools-inline-edit-text-editor {
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    top: 0;
+    min-width: 100%;
+}
+
+.itds-angular-tools-inline-edit-text-editor form {
+    margin-bottom: 0;
+    vertical-align: top;
+}
