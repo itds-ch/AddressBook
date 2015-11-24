@@ -5,12 +5,12 @@ class Person {
 	static constraints = {
 		//definition of order of input fields
 		//input fields validation
-		name(blank:false,maxSize:100)
-		vorname(blank:false,maxSize:100)
-		alias(blank:true)
-		geburtsdatum(blank:false)
+		name(blank:false,maxSize:50)
+		vorname(blank:false,maxSize:50)
+		alias(nullable:true)
+		geburtsdatum(nullable:true)
 		notizen(blank:true,maxSize:1500)
-		hauptadresse (unique: true)
+		hauptadresse (nullable: true)
 	}
 	
 	String name
@@ -22,9 +22,8 @@ class Person {
 	static hasOne = [hauptadresse: Address]
 	static hasMany = [tags: Tag]
 
-	
 	String toString(){
-		return name
+		"${name} ${vorname}" 
 	  }
 	
 

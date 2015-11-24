@@ -1,6 +1,26 @@
 <%@ page import="org.itds.AddressBook.Address" %>
 
+<div class="form-group  ${hasErrors(bean: addressInstance, field: 'person', 'error')} required">
+    <label for="person" class="col-sm-2 control-label">
+        <g:message code="address.person.label" default="Person" />
+        <span class="required-indicator">*</span>
+    </label>
+    <div class="col-sm-10">
+        <g:select id="person" name="person.id" from="${org.itds.AddressBook.Person.list()}" optionKey="id" required="" value="${addressInstance?.person?.id}" class="many-to-one"/>
 
+    </div>
+</div>
+
+<div class="form-group  ${hasErrors(bean: addressInstance, field: 'adresstyp', 'error')} required">
+    <label for="adresstyp" class="col-sm-2 control-label">
+        <g:message code="address.adresstyp.label" default="Adresstyp" />
+        <span class="required-indicator">*</span>
+    </label>
+    <div class="col-sm-10">
+        <g:select name="adresstyp" from="${org.itds.AddressBook.Address$Adresstyp?.values()}" keys="${org.itds.AddressBook.Address$Adresstyp.values()*.name()}" required="" value="${addressInstance?.adresstyp?.name()}" />
+
+    </div>
+</div>
 
 <div class="form-group  ${hasErrors(bean: addressInstance, field: 'bezeichnung', 'error')} required">
     <label for="bezeichnung" class="col-sm-2 control-label">
@@ -13,10 +33,10 @@
     </div>
 </div>
 
-<div class="form-group  ${hasErrors(bean: addressInstance, field: 'firma', 'error')} required">
+<div class="form-group  ${hasErrors(bean: addressInstance, field: 'firma', 'error')}">
     <label for="firma" class="col-sm-2 control-label">
         <g:message code="address.firma.label" default="Firma" />
-        <span class="required-indicator">*</span>
+        
     </label>
     <div class="col-sm-10">
         <g:textField name="firma" required="" value="${addressInstance?.firma}"/>
@@ -68,10 +88,10 @@
     </div>
 </div>
 
-<div class="form-group  ${hasErrors(bean: addressInstance, field: 'tel', 'error')} required">
+<div class="form-group  ${hasErrors(bean: addressInstance, field: 'tel', 'error')} ">
     <label for="tel" class="col-sm-2 control-label">
         <g:message code="address.tel.label" default="Tel" />
-        <span class="required-indicator">*</span>
+       
     </label>
     <div class="col-sm-10">
         <g:textField name="tel" required="" value="${addressInstance?.tel}"/>
@@ -90,10 +110,10 @@
     </div>
 </div>
 
-<div class="form-group  ${hasErrors(bean: addressInstance, field: 'website', 'error')} required">
+<div class="form-group  ${hasErrors(bean: addressInstance, field: 'website', 'error')}">
     <label for="website" class="col-sm-2 control-label">
         <g:message code="address.website.label" default="Website" />
-        <span class="required-indicator">*</span>
+       
     </label>
     <div class="col-sm-10">
         <g:field type="url" name="website" required="" value="${addressInstance?.website}"/>
@@ -101,16 +121,6 @@
     </div>
 </div>
 
-<div class="form-group  ${hasErrors(bean: addressInstance, field: 'person', 'error')} required">
-    <label for="person" class="col-sm-2 control-label">
-        <g:message code="address.person.label" default="Person" />
-        <span class="required-indicator">*</span>
-    </label>
-    <div class="col-sm-10">
-        <g:select id="person" name="person.id" from="${org.itds.AddressBook.Person.list()}" optionKey="id" required="" value="${addressInstance?.person?.id}" class="many-to-one"/>
-
-    </div>
-</div>
 
 
 

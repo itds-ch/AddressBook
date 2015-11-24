@@ -9,6 +9,11 @@ class Benutzer {
 	
 	String benutzername
 	String passwort
+	static hasMany = [tags:Tag, addressBooks: AddressBook]
+		
+	String toString(){
+		return benutzername
+	}
 
     
 }

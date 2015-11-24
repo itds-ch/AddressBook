@@ -56,6 +56,13 @@
 
 				<dl class="dl-horizontal">
 				
+					<g:if test="${addressInstance?.adresstyp}">
+						<dt><g:message code="address.adresstyp.label" default="Adresstyp" /></dt>
+						
+							<dd><g:fieldValue bean="${addressInstance}" field="adresstyp"/></dd>
+						
+					</g:if>
+				
 					<g:if test="${addressInstance?.bezeichnung}">
 						<dt><g:message code="address.bezeichnung.label" default="Bezeichnung" /></dt>
 						

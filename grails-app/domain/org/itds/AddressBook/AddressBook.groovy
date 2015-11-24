@@ -3,11 +3,11 @@ package org.itds.AddressBook
 class AddressBook {
 
 	static constraints = {
-		name(blank:false,maxSize:100)
+		name(blank:false, maxSize:50)
 	}
 	
 	String name
-	Benutzer benutzer
+	static belongsTo = [benutzer: Benutzer]
 	
 	String toString(){
 		return name

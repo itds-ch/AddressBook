@@ -8,11 +8,7 @@ class Tag {
 	}
 	
 	String name
+	String iconName // later will be defined as image
 	static belongsTo = [benutzer: Benutzer]
-	String iconName
-	
-	String toString(){
-		return name
-	  }
 	
 }

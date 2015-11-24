@@ -5,20 +5,20 @@ class Address {
 	static constraints = {
 		//definition of order of input fields
 		//input fields validation
-		//adresstyp() - will be defined later
-		bezeichnung(blank:true)
+		adresstyp(nullable:false) 
+		bezeichnung(blank:false)
 		firma(blank:true)
-		strasse(blank:true)
-		plz(nullable: true)
-		ort(blank:true)
-		personalEmail(email:true)
-		tel(blank:true)
-		mobile(blank:true)
-		website(url:true)
+		strasse(blank:false)
+		plz(nullable:true)
+		ort(blank:false)
+		personalEmail(blank:false, email:true)
+		tel(blank:true, nullable:true)
+		mobile(blank:false)
+		website(blank:false,url:true)
 		
 	}
 	
-	//enum Adresstyp {WORK, HOME, OTHER} - will be defined later
+	enum Adresstyp {WORK, HOME, OTHER} 
 	String bezeichnung
 	static belongsTo = [person: Person]
 	String firma
@@ -29,7 +29,10 @@ class Address {
 	String tel
 	String mobile
 	String website
+	Adresstyp adresstyp
 
-
+	String toString(){
+		"${strasse} ${plz} ${ort}"
+	  }
 
 }

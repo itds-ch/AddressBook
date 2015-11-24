@@ -47,7 +47,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th><g:message code="address.person.label" default="Name Vorname" /></th>
                     
+                    <th><g:message code="address.adresstyp.label" default="Adresstyp" /></th>
+                   
                     <th><g:message code="address.bezeichnung.label" default="Bezeichnung" /></th>
                    
                     <th><g:message code="address.firma.label" default="Firma" /></th>
@@ -58,15 +61,17 @@
                    
                     <th><g:message code="address.ort.label" default="Ort" /></th>
                    
-                    <th><g:message code="address.personalEmail.label" default="Personal Email" /></th>
-                   
                 </tr>
                 </thead>
                 <tbody>
                 <g:each in="${addressInstanceList}" status="i" var="addressInstance">
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                                      					                  
+                        <td><g:link action="show" id="${addressInstance.id}">${fieldValue(bean: addressInstance, field: "person")}</g:link></td>
                         
-                        <td><g:link action="show" id="${addressInstance.id}">${fieldValue(bean: addressInstance, field: "bezeichnung")}</g:link></td>
+                        <td>${fieldValue(bean: addressInstance, field: "adresstyp")}</td>
+                        
+                        <td>${fieldValue(bean: addressInstance, field: "bezeichnung")}</td>
                         
                         <td>${fieldValue(bean: addressInstance, field: "firma")}</td>
                         
@@ -75,8 +80,6 @@
                         <td>${fieldValue(bean: addressInstance, field: "plz")}</td>
                         
                         <td>${fieldValue(bean: addressInstance, field: "ort")}</td>
-                        
-                        <td>${fieldValue(bean: addressInstance, field: "personalEmail")}</td>
                         
                     </tr>
                 </g:each>

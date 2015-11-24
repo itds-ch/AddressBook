@@ -98,22 +98,6 @@
 						
 					</g:if>
 				
-					<g:if test="${personInstance?.adressbuch}">
-						<dt><g:message code="person.adressbuch.label" default="Adressbuch" /></dt>
-						
-							<dd><g:link controller="addressBook" action="show" id="${personInstance?.adressbuch?.id}">${personInstance?.adressbuch?.encodeAsHTML()}</g:link></dd>
-						
-					</g:if>
-				
-					<g:if test="${personInstance?.tags}">
-						<dt><g:message code="person.tags.label" default="Tags" /></dt>
-						
-							<g:each in="${personInstance.tags}" var="t">
-							<dd><g:link controller="tag" action="show" id="${t.id}">${t?.encodeAsHTML()}</g:link></dd>
-							</g:each>
-						
-					</g:if>
-				
 				</dl>
 
                 </div>
