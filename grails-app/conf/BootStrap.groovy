@@ -13,6 +13,8 @@ class BootStrap {
 	def init = { servletContext ->
 		
 		def benutzer1 = new Benutzer (benutzername: "benutzer1", passwort:"passwort1")
+		def benutzer2 = new Benutzer (benutzername: "benutzer2", passwort:"passwort2")
+		def benutzer3 = new Benutzer (benutzername: "benutzer3", passwort:"passwort3")
 				
 		def tag1 = new Tag(name: "friends", iconName: "iconFriends")
 		def tag2 = new Tag(name: "family", iconName: "iconFamily")
@@ -30,6 +32,8 @@ class BootStrap {
 		def person2 = new Person (name: "personName2", vorname: "vorname2", alias: "alias2", geburtsdatum: "", notizen:"notizenText2", adressbuch:addressBook1, hauptadresse: hauptadresse2, tags:tag2)
 		
 		benutzer1.save(failOnError:true)
+		benutzer2.save(failOnError:true)
+		benutzer3.save(failOnError:true)
 		tag1.save(failOnError:true)
 		tag2.save(failOnError:true)
 		person1.save(failOnError:true)

@@ -10,13 +10,14 @@ class AddressController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: ["GET","DELETE"]]
 
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Address.list(params), model:[addressInstanceCount: Address.count()]
     }
 
     def show(Address addressInstance) {
-        respond addressInstance
+		respond addressInstance
     }
 
     def create() {

@@ -56,7 +56,7 @@
                 </a>
                     <ul class="dropdown-menu">
 
-                        <li><a href="http://www.simpleadmin.net" target="_blank"><g:message code="accountInfo"/></a></li>
+                        <li><g:link controller="auth" action="login"><g:message code="login.label"/></g:link></li>
                         <li><g:link controller="auth" action="logout"><g:message code="logout.label"/></g:link></li>
                     </ul>
 
