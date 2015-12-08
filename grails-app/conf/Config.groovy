@@ -34,16 +34,6 @@ grails.mime.types = [ // the first one is the default format
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
 
-//Enable BCrypt password hashing
-grails.plugin.springsecurity.password.algorithm = 'bcrypt'
-grails.plugin.springsecurity.auth.loginFormUrl ='/Auth/login/'
-
-import grails.plugin.springsecurity.SecurityConfigType
-grails.plugin.springsecurity.securityConfigType = SecurityConfigType.InterceptUrlMap
-grails.plugin.springsecurity.interceptUrlMap = [
-	'/**':               ['IS_AUTHENTICATED_ANONYMOUSLY']
-]
-
 // Legacy setting for codec used to encode data with ${}
 grails.views.default.codec = "html"
 

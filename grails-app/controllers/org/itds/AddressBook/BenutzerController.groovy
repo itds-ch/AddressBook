@@ -10,7 +10,7 @@ class BenutzerController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: ["GET","DELETE"]]
 	
-	
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Benutzer.list(params), model:[benutzerInstanceCount: Benutzer.count()]
@@ -37,8 +37,7 @@ class BenutzerController {
             respond benutzerInstance.errors, view:'create'
             return
         }
-		
-		
+
         benutzerInstance.save flush:true
 
         request.withFormat {
@@ -49,7 +48,6 @@ class BenutzerController {
             '*' { respond benutzerInstance, [status: CREATED] }
         }
     }
-	
 
     def edit(Benutzer benutzerInstance) {
         respond benutzerInstance
