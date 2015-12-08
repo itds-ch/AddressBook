@@ -5,18 +5,21 @@ package org.itds.AddressBook
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
-@Transactional(readOnly = true)
+//@Transactional(readOnly = true)
 class AddressBookController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: ["GET","DELETE"]]
+	//def springSecurityService
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond AddressBook.list(params), model:[addressBookInstanceCount: AddressBook.count()]
+		respond AddressBook.list(params).grep{it.benutzer.benutzername == session.user.benutzername}, model:[addressBookInstanceCount: AddressBook.count()]
+		//respond AddressBook.list(params).grep{it.benutzer.benutzername == springSecurityService.currentUser?.username}, model:[addressBookInstanceCount: AddressBook.count()]
     }
 
     def show(AddressBook addressBookInstance) {
 		respond addressBookInstance
+		
     }
 
     def create() {
