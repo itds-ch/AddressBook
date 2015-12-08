@@ -19,7 +19,7 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-10">
-        <g:textField name="passwort" maxlength="100" required="" value="${benutzerInstance?.passwort}"/>
+        <g:textField name="passwort" maxlength="100" required="" value=""/>
 
     </div>
 </div>

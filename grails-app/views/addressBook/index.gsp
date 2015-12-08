@@ -57,11 +57,11 @@
                 <tbody>
                 <g:each in="${addressBookInstanceList}" status="i" var="addressBookInstance">
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                        <g:if test="${addressBookInstance.benutzer.benutzername == session.user.benutzername }">
+                        
                         <td><g:link action="show" id="${addressBookInstance.id}">${fieldValue(bean: addressBookInstance, field: "benutzer")}</g:link></td>
                         
                         <td>${fieldValue(bean: addressBookInstance, field: "name")}</td>
-                        </g:if>
+                       
                     </tr>
                 </g:each>
                 </tbody>

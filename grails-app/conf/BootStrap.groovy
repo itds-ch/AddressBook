@@ -12,6 +12,7 @@ class BootStrap {
 	
 	def init = { servletContext ->
 		
+		
 		def benutzer1 = new Benutzer (benutzername: "benutzer1", passwort:"passwort1")
 		def benutzer2 = new Benutzer (benutzername: "benutzer2", passwort:"passwort2")
 		def benutzer3 = new Benutzer (benutzername: "benutzer3", passwort:"passwort3")
@@ -23,7 +24,9 @@ class BootStrap {
 		benutzer1.addToTags(tag2)
 		
 		def addressBook1 = new AddressBook (name:"addressBookName1")
+		def addressBook2 = new AddressBook (name:"addressBookName2")
 		benutzer1.addToAddressBooks(addressBook1)
+		benutzer2.addToAddressBooks(addressBook2)
 			
 		def hauptadresse1 = new Address (adresstyp: "WORK", bezeichnung: "bezeichnung1", firma: "firma1", strasse:"strasse1",plz:"09999", ort:"ort1", personalEmail:"test@1mail.com",tel:"+491759999999",mobile:"+491759999999",website:"http://test1.com")
 		def hauptadresse2 = new Address (adresstyp: "HOME", bezeichnung: "bezeichnung2", firma: "firma2", strasse:"strasse2",plz:"", ort:"ort2", personalEmail:"test2@mail.com",tel:"",mobile:"+491759999999",website:"http://test2.com")
@@ -39,6 +42,7 @@ class BootStrap {
 		person1.save(failOnError:true)
 		person2.save(failOnError:true)
 		addressBook1.save(failOnError:true)
+		addressBook2.save(failonError:true)
 		hauptadresse1.save(failOnError:true)
 		hauptadresse2.save(failOnError:true)
 		
