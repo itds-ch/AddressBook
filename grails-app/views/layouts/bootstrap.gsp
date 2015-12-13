@@ -10,10 +10,42 @@
     <title><g:layoutTitle default="Grails"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
-    <link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
-    <link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+    <link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}"/>
     <asset:stylesheet src="addressbook.less"/>
     <asset:javascript src="application.js"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.full.js"></script>
+	<script type="text/javascript">
+		$(function (){
+			$('#searchBox').select2(
+				{
+				    placeholder: 'Search',
+				    //Does the user have to enter any data before sending the ajax request
+				    minimumInputLength: 3,            
+				    ajax: {
+				        //How long the user has to pause their typing before sending the next request
+				        quietMillis: 150,
+				        //The url of the json service
+				        url: "/AddressBook/Search/autocomplete",
+				        dataType: 'json',
+				        //The search term 
+				        data: function (params) {
+				            return {
+				                term: params.terms,
+				                page: params.page
+				            };
+				        },
+				        results: function (data, page) {
+				            //Used to determine whether or not there are more results available,
+				            //and if requests for more data should be sent in the infinite scrolling
+				            var more = (page * 10) < data.Total; 
+				            return { results: data.Results, more: more };
+				        }
+				    }
+				}); 
+		});
+	</script>
     <g:layoutHead/>
 </head>
 <body role="document">
@@ -46,10 +78,13 @@
             <ul class="nav navbar-nav pull-right">
                 <li id="itds_connect">
                 </li>
-                <jq:jquery>
+                <!--<jq:jquery>
                     itds_connect_register('#itds_connect');
-                </jq:jquery>
-
+                </jq:jquery> -->
+				<li> 
+				<input type="hidden" id="searchBox"  />
+				
+                </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-user"></i> ${request.user} <b class="caret"></b>
 

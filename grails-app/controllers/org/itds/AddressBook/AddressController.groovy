@@ -13,7 +13,7 @@ class AddressController {
 	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Address.list(params), model:[addressInstanceCount: Address.count()]
+        respond Address.list(params).grep{it.person.adressbuch.benutzer.id == session.userId}, model:[addressInstanceCount: Address.count()]
     }
 
     def show(Address addressInstance) {
@@ -21,7 +21,8 @@ class AddressController {
     }
 
     def create() {
-        respond new Address(params)
+		def ownPerson = Person.list().grep{it.adressbuch.benutzer.id == session.userId} 
+		[ownPersons: ownPerson]
     }
 
     @Transactional
@@ -48,7 +49,8 @@ class AddressController {
     }
 
     def edit(Address addressInstance) {
-        respond addressInstance
+		def ownPerson = addressInstance.person
+		[addressInstance: addressInstance, ownPersons: ownPerson]
     }
 
     @Transactional

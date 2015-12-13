@@ -13,6 +13,8 @@
     </div>
 </div>
 
+
+
 <div class="form-group  ${hasErrors(bean: addressBookInstance, field: 'name', 'error')} required">
     <label for="name" class="col-sm-2 control-label">
         <g:message code="addressBook.name.label" default="Name" />

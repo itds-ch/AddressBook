@@ -15,11 +15,7 @@ class AuthController {
 		  def benutzer = Benutzer.findByBenutzername(params.benutzername)
 				  
 		  if(benutzer && passwordEncoder.isPasswordValid(benutzer.passwort, params.passwort, null)){
-			//commented code will be activated after implementing secured controller
-			//def userId = springSecurityService.getCurrentUser()
-			//session.setAttribute("id", userId)
-			session.user = benutzer  
-			//flash.message = "Welcome ${springSecurityService.currentUser?.username}!"
+			session.userId = benutzer.id  
 			redirect(controller:"addressBook", action:"index")
 			
 		  } else {
@@ -31,9 +27,9 @@ class AuthController {
 	
 
 	def logout = {
-	  flash.message = "Goodbye ${session.id}"
+	  flash.message = "Goodbye ${session.userId}"
 	  //session.id = null
-	  session.user = null
+	  session.userId = null
 	  redirect(controller:"addressBook", action:"index")
 	}
 

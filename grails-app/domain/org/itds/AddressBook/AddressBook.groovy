@@ -10,7 +10,7 @@ class AddressBook {
 	static belongsTo = [benutzer: Benutzer]
 	
 	String toString(){
-		return name
+		return "${name}"
 	  }
 	
  }

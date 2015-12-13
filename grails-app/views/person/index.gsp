@@ -47,6 +47,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
+                    <th><g:message code="person.adressbuch.label" default="Adressbuch" /></th>
                     
                     <th><g:message code="person.name.label" default="Name" /></th>
                    
@@ -65,8 +66,10 @@
                 <tbody>
                 <g:each in="${personInstanceList}" status="i" var="personInstance">
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                                         
+                        <td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "adressbuch")}</g:link></td>
                         
-                        <td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
+                        <td>${fieldValue(bean: personInstance, field: "name")}</td>
                         
                         <td>${fieldValue(bean: personInstance, field: "vorname")}</td>
                         
@@ -78,6 +81,7 @@
                         
                         <td>${fieldValue(bean: personInstance, field: "hauptadresse")}</td>
                         
+                                              
                     </tr>
                 </g:each>
                 </tbody>
@@ -90,4 +94,8 @@
 </div>
 </div>
 </div>
+
+<script type="text/javascript">
+  $('js-example-basic-multiple').select2();
+</script>
 </body>

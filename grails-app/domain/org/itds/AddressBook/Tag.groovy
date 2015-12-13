@@ -11,4 +11,7 @@ class Tag {
 	String iconName // later will be defined as image
 	static belongsTo = [benutzer: Benutzer]
 	
+	String toString(){
+		return name
+	}
 }

@@ -9,10 +9,10 @@ import grails.transaction.Transactional
 class PersonController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: ["GET","DELETE"]]
-
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Person.list(params), model:[personInstanceCount: Person.count()]
+        respond Person.list(params).grep{it.adressbuch.benutzer.id == session.userId}, model:[personInstanceCount: Person.count()]
     }
 
     def show(Person personInstance) {
@@ -20,7 +20,9 @@ class PersonController {
     }
 
     def create() {
-        respond new Person(params)
+		def ownAddressBook = AddressBook.list().grep{it.benutzer.id == session.userId}
+		def personTag = Tag.list().grep{it.benutzer.id == session.userId}
+		[ownAddressBooks: ownAddressBook, personTags: personTag]
     }
 
     @Transactional
@@ -47,7 +49,10 @@ class PersonController {
     }
 
     def edit(Person personInstance) {
-        respond personInstance
+		def ownAddressBook = AddressBook.list().grep{it.benutzer.id == session.userId}
+		def personAddress = personInstance.hauptadresse
+		def personTag = personInstance.tags
+		[personInstance: personInstance, ownAddressBooks: ownAddressBook, personAddresses: personAddress, personTags:personTag]
     }
 
     @Transactional

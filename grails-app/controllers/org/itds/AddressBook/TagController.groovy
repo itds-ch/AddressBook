@@ -12,7 +12,7 @@ class TagController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Tag.list(params), model:[tagInstanceCount: Tag.count()]
+        respond Tag.list(params).grep{it.benutzer.id == session.userId}, model:[tagInstanceCount: Tag.count()]
     }
 
     def show(Tag tagInstance) {
@@ -20,7 +20,9 @@ class TagController {
     }
 
     def create() {
-        respond new Tag(params)
+		def loggedBenutzer = Benutzer.list().grep{it.id == session.userId}
+		[loggedBenutzer: loggedBenutzer]
+        //respond new Tag(params)
     }
 
     @Transactional
@@ -47,7 +49,8 @@ class TagController {
     }
 
     def edit(Tag tagInstance) {
-        respond tagInstance
+		def loggedBenutzer = tagInstance.benutzer
+		[tagInstance: tagInstance, loggedBenutzer: loggedBenutzer]
     }
 
     @Transactional

@@ -5,6 +5,14 @@
 		<meta name="layout" content="bootstrap">
 		<g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
+		<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+		<script type="text/javascript">
+			$(function (){
+  				$('.adressbuch').select2();
+  				$('.tags').select2();
+			});
+		</script>
 	</head>
 	<body>
     <div class="row">
@@ -26,7 +34,6 @@
         </div>
 
         <div class="col-sm-10">
-
 
             <div class="panel panel-default">
                 <div class="panel-heading">

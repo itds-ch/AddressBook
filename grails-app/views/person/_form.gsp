@@ -1,5 +1,14 @@
 <%@ page import="org.itds.AddressBook.Person" %>
 
+<div class="form-group  ${hasErrors(bean: personInstance, field: 'adressbuch', 'error')} ">
+    <label for="adressbuch" class="col-sm-2 control-label">
+        <g:message code="person.adressbuch.label" default="AdressBuch" />
+        
+    </label>
+    <div class="col-sm-10">
+   	   <g:select class="adressbuch" id="adressbuch" name="adressbuch.name" from="${ownAddressBooks}" optionKey="id" value="${personInstance?.adressbuch?.id}" noSelection="['null': '']"/>
+    </div>
+</div>
 
 
 <div class="form-group  ${hasErrors(bean: personInstance, field: 'name', 'error')} required">
@@ -63,7 +72,18 @@
         
     </label>
     <div class="col-sm-10">
-        <g:select id="hauptadresse" name="hauptadresse.id" from="${org.itds.AddressBook.Address.list()}" optionKey="id" value="${personInstance?.hauptadresse?.id}" class="many-to-one" noSelection="['null': '']"/>
+        <g:select class="hauptadresse" id="hauptadresse" name="hauptadresse.id" from="${personAddresses}" optionKey="id" value="${personInstance?.hauptadresse?.id}" noSelection="['null': '']"/>
+
+    </div>
+</div>
+
+<div class="form-group  ${hasErrors(bean: personInstance, field: 'tag', 'error')} ">
+    <label for="tags" class="col-sm-2 control-label">
+        <g:message code="person.tags.label" default="Tags" />
+        
+    </label>
+    <div class="col-sm-10">
+        <g:select class="tags" multiple="multiple" id="tags" name="tags.name" from="${personTags}" optionKey="id" value="${personInstance?.tags?.id}" noSelection="['null': '']"/>
 
     </div>
 </div>

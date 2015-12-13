@@ -1,2 +1,3 @@
 #definition of files to ignore in the Git-repository
 target/*
+target-eclipse/*

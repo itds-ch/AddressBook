@@ -56,6 +56,13 @@
 
 				<dl class="dl-horizontal">
 				
+					<g:if test="${personInstance?.adressbuch}">
+						<dt><g:message code="person.adressbuch.label" default="Adressbuch" /></dt>
+						
+							<dd><g:link controller="addressBook" action="show" id="${personInstance?.adressbuch?.id}">${personInstance?.adressbuch?.encodeAsHTML()}</g:link></dd>
+						
+					</g:if>
+				
 					<g:if test="${personInstance?.name}">
 						<dt><g:message code="person.name.label" default="Name" /></dt>
 						

@@ -6,7 +6,7 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-10">
-        <g:select id="person" name="person.id" from="${org.itds.AddressBook.Person.list()}" optionKey="id" required="" value="${addressInstance?.person?.id}" class="many-to-one"/>
+        <g:select class="person" id="person" name="person.id" from="${ownPersons}" optionKey="id" required="" value="${addressInstance?.person?.id}"/>
 
     </div>
 </div>
@@ -61,7 +61,7 @@
         
     </label>
     <div class="col-sm-10">
-        <g:field name="plz" type="number" value="${addressInstance.plz}"/>
+        <g:field name="plz" type="number" value="${addressInstance?.plz}"/>
 
     </div>
 </div>
