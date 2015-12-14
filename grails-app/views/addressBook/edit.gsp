@@ -5,6 +5,13 @@
     <meta name="layout" content="bootstrap">
     <g:set var="entityName" value="${message(code: 'addressBook.label', default: 'AddressBook')}" />
     <title><g:message code="default.edit.label" args="[entityName]" /></title>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.min.js"></script>
+	<script type="text/javascript">
+		$(function (){
+  			$('.benutzername').select2();
+		});
+	</script>
 </head>
 <body>
 <div class="row">

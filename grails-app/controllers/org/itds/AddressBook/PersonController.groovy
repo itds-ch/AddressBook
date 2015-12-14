@@ -51,7 +51,7 @@ class PersonController {
     def edit(Person personInstance) {
 		def ownAddressBook = AddressBook.list().grep{it.benutzer.id == session.userId}
 		def personAddress = personInstance.hauptadresse
-		def personTag = personInstance.tags
+		def personTag = Tag.list().grep{it.benutzer.id == session.userId}
 		[personInstance: personInstance, ownAddressBooks: ownAddressBook, personAddresses: personAddress, personTags:personTag]
     }
 

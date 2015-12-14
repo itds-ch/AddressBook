@@ -27,8 +27,9 @@
 				        //How long the user has to pause their typing before sending the next request
 				        quietMillis: 150,
 				        //The url of the json service
-				        url: "/AddressBook/Search/autocomplete",
-				        dataType: 'json',
+				        url: "/AddressBook/Search/autocomplete",  
+				        jsonpCallback: "RecentPosts",  
+		                dataType: 'jsonp', 
 				        //The search term 
 				        data: function (params) {
 				            return {

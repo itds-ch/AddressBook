@@ -21,8 +21,9 @@ class AddressBookController {
     }
 
     def create() {
-		
-		respond new AddressBook(params)
+		def loggedBenutzer = Benutzer.list().grep{it.id == session.userId}
+		[loggedBenutzer: loggedBenutzer]
+		//respond new AddressBook(params)
     }
 
     @Transactional
@@ -49,7 +50,9 @@ class AddressBookController {
     }
 
     def edit(AddressBook addressBookInstance) {
-        respond addressBookInstance
+		def loggedBenutzer = addressBookInstance.benutzer
+		[addressBookInstance: addressBookInstance, loggedBenutzer: loggedBenutzer]
+        //respond addressBookInstance
     }
 
     @Transactional

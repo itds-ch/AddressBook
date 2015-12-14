@@ -39,7 +39,7 @@
         
     </label>
     <div class="col-sm-10">
-        <g:textField name="firma" required="" value="${addressInstance?.firma}"/>
+        <g:textField name="firma" value="${addressInstance?.firma}"/>
 
     </div>
 </div>
@@ -94,7 +94,7 @@
        
     </label>
     <div class="col-sm-10">
-        <g:textField name="tel" required="" value="${addressInstance?.tel}"/>
+        <g:textField name="tel" value="${addressInstance?.tel}"/>
 
     </div>
 </div>
@@ -116,7 +116,7 @@
        
     </label>
     <div class="col-sm-10">
-        <g:field type="url" name="website" required="" value="${addressInstance?.website}"/>
+        <g:field type="url" name="website" value="${addressInstance?.website}"/>
 
     </div>
 </div>

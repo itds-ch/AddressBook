@@ -8,7 +8,7 @@
         <span class="required-indicator">*</span>
     </label>
     <div class="col-sm-10">
-        <g:select id="benutzer" name="benutzer.id" from="${org.itds.AddressBook.Benutzer.list()}" optionKey="id" required="" value="${addressBookInstance?.benutzer?.id}" class="many-to-one"/>
+        <g:select class = "benutzername" id="benutzer" name="benutzer.id" from="${loggedBenutzer}" optionKey="id" required="" value="${addressBookInstance?.benutzer?.id}"/>
 
     </div>
 </div>

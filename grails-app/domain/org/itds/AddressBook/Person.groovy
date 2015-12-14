@@ -9,7 +9,7 @@ class Person {
 		vorname(blank:false,maxSize:50)
 		alias(nullable:true)
 		geburtsdatum(nullable:true)
-		notizen(blank:true,maxSize:1500)
+		notizen(nullable:true,maxSize:1500)
 		hauptadresse (nullable: true)
 	}
 	

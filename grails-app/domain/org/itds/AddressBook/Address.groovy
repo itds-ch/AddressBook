@@ -7,14 +7,14 @@ class Address {
 		//input fields validation
 		adresstyp(nullable:false) 
 		bezeichnung(blank:false)
-		firma(blank:true)
+		firma(blank:true,nullable:true)
 		strasse(blank:false)
 		plz(nullable:true)
 		ort(blank:false)
 		personalEmail(blank:false, email:true)
 		tel(blank:true, nullable:true)
 		mobile(blank:false)
-		website(blank:false,url:true)
+		website(blank:false, nullable:true, url:true)
 		
 	}
 	

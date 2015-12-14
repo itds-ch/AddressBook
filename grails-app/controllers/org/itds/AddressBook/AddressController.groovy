@@ -21,7 +21,7 @@ class AddressController {
     }
 
     def create() {
-		def ownPerson = Person.list().grep{it.adressbuch.benutzer.id == session.userId} 
+		def ownPerson = Person.list().grep{it.adressbuch.benutzer.id == session.userId && it.hauptadresse == null} 
 		[ownPersons: ownPerson]
     }
 

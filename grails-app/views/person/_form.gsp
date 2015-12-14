@@ -6,7 +6,7 @@
         
     </label>
     <div class="col-sm-10">
-   	   <g:select class="adressbuch" id="adressbuch" name="adressbuch.name" from="${ownAddressBooks}" optionKey="id" value="${personInstance?.adressbuch?.id}" noSelection="['null': '']"/>
+   	   <g:select class="adressbuch" id="adressbuch" name="adressbuch.id" from="${ownAddressBooks}" optionKey="id" value="${personInstance?.adressbuch?.id}" noSelection="['null': '']"/>
     </div>
 </div>
 
@@ -83,7 +83,7 @@
         
     </label>
     <div class="col-sm-10">
-        <g:select class="tags" multiple="multiple" id="tags" name="tags.name" from="${personTags}" optionKey="id" value="${personInstance?.tags?.id}" noSelection="['null': '']"/>
+        <g:select class="tags" multiple="multiple" id="tags" name="tags.id" from="${personTags}" optionKey="id" value="${personInstance?.tags?.id}" noSelection="['null': '']"/>
 
     </div>
 </div>
