@@ -6,7 +6,7 @@
         
     </label>
     <div class="col-sm-10">
-   	   <g:select class="adressbuch" id="adressbuch" name="adressbuch.id" from="${ownAddressBooks}" optionKey="id" value="${personInstance?.adressbuch?.id}" noSelection="['null': '']"/>
+   	   <g:select  class="adressbuch" id="adressbuch" name="adressbuch.id" from="${ownAddressBooks}" optionKey="id" value="${personInstance?.adressbuch?.id}" noSelection="['null': '']"/>
     </div>
 </div>
 
@@ -77,13 +77,13 @@
     </div>
 </div>
 
-<div class="form-group  ${hasErrors(bean: personInstance, field: 'tag', 'error')} ">
+<div class="form-group  ${hasErrors(bean: personInstance, field: 'tags', 'error')} ">
     <label for="tags" class="col-sm-2 control-label">
         <g:message code="person.tags.label" default="Tags" />
         
     </label>
     <div class="col-sm-10">
-        <g:select class="tags" multiple="multiple" id="tags" name="tags.id" from="${personTags}" optionKey="id" value="${personInstance?.tags?.id}" noSelection="['null': '']"/>
+        <g:select class="tags" multiple="multiple" id="tags" name="tags" from="${personTags}" optionKey="id" value="${personInstance?.tags?.id}" noSelection="['null': '']"/>
 
     </div>
 </div>

@@ -22,7 +22,6 @@ class TagController {
     def create() {
 		def loggedBenutzer = Benutzer.list().grep{it.id == session.userId}
 		[loggedBenutzer: loggedBenutzer]
-        //respond new Tag(params)
     }
 
     @Transactional

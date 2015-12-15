@@ -3,7 +3,7 @@ package org.itds.AddressBook
 class AddressBook {
 
 	static constraints = {
-		name(blank:false, unique:true, maxSize:50)
+		name(blank:false, maxSize:50)
 	}
 	
 	String name

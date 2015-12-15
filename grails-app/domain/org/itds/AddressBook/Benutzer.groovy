@@ -31,7 +31,7 @@ class Benutzer {
 	
 	
 	String toString(){
-		return benutzername
+		return "${benutzername}"
 	}
 
     

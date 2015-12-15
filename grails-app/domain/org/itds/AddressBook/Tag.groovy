@@ -12,6 +12,6 @@ class Tag {
 	static belongsTo = [benutzer: Benutzer]
 	
 	String toString(){
-		return name
+		return "${name}"
 	}
 }

@@ -104,6 +104,13 @@
 							<dd><g:link controller="address" action="show" id="${personInstance?.hauptadresse?.id}">${personInstance?.hauptadresse?.encodeAsHTML()}</g:link></dd>
 						
 					</g:if>
+					
+					<g:if test="${personInstance?.tags}">
+						<dt><g:message code="person.tags.label" default="Tags" /></dt>
+						
+							<dd><g:fieldValue bean="${personInstance}" field="tags"/></dd>
+						
+					</g:if>
 				
 				</dl>
 

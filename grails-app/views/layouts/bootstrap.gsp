@@ -18,30 +18,22 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/js/select2.full.js"></script>
 	<script type="text/javascript">
 		$(function (){
-			$('#searchBox').select2(
+			$(".searchBox").select2(
 				{
 				    placeholder: 'Search',
-				    //Does the user have to enter any data before sending the ajax request
 				    minimumInputLength: 3,            
 				    ajax: {
-				        //How long the user has to pause their typing before sending the next request
 				        quietMillis: 150,
-				        //The url of the json service
-				        url: "/AddressBook/Search/autocomplete",  
-				        jsonpCallback: "RecentPosts",  
-		                dataType: 'jsonp', 
+				        url: "http://localhost:8080/AddressBook/search/autocomplete",   
+		                dataType: 'json', 
 				        //The search term 
-				        data: function (params) {
+				        data: function (term) {
 				            return {
-				                term: params.terms,
-				                page: params.page
+				                searchTerm: term,
 				            };
 				        },
-				        results: function (data, page) {
-				            //Used to determine whether or not there are more results available,
-				            //and if requests for more data should be sent in the infinite scrolling
-				            var more = (page * 10) < data.Total; 
-				            return { results: data.Results, more: more };
+				        results: function (data) {
+					            return { results: data };
 				        }
 				    }
 				}); 
@@ -83,7 +75,7 @@
                     itds_connect_register('#itds_connect');
                 </jq:jquery> -->
 				<li> 
-				<input type="hidden" id="searchBox"  />
+				<select class="searchBox" style="width:200px;"></select>
 				
                 </li>
                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">

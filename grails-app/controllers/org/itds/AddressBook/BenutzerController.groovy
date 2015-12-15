@@ -13,7 +13,7 @@ class BenutzerController {
 	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Benutzer.list(params), model:[benutzerInstanceCount: Benutzer.count()]
+        respond Benutzer.list(params).grep{it.id == session.userId}, model:[benutzerInstanceCount: Benutzer.count()]
     }
 
     def show(Benutzer benutzerInstance) {

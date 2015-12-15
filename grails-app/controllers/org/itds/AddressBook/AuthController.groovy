@@ -28,7 +28,6 @@ class AuthController {
 
 	def logout = {
 	  flash.message = "Goodbye ${session.userId}"
-	  //session.id = null
 	  session.userId = null
 	  redirect(controller:"addressBook", action:"index")
 	}
