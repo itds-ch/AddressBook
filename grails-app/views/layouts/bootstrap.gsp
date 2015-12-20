@@ -29,15 +29,24 @@
 				        //The search term 
 				        data: function (term) {
 				            return {
-				                searchTerm: term,
+				                searchTerm: term.term,
 				            };
 				        },
-				        results: function (data) {
-					            return { results: data };
+                        processResults: function (data) {
+					        return { results: data.results };
 				        }
-				    }
+				    },
+                    templateResult: repoFormatResult,
+                    templateSelection: repoFormatSelection
 				}); 
 		});
+        function repoFormatResult(item) {
+            return item;
+        }
+
+        function repoFormatSelection(item) {
+            return item;
+        }
 	</script>
     <g:layoutHead/>
 </head>
